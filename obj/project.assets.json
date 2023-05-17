@@ -2203,11 +2203,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/Luiz/Desktop/labs/DotNetVulnApp/brokenaccesscontrol.csproj",
+      "projectUniqueName": "/home/Luiz/Desktop/Treinamento XP/DotNetVulnApp/brokenaccesscontrol.csproj",
       "projectName": "brokenaccesscontrol",
-      "projectPath": "/home/Luiz/Desktop/labs/DotNetVulnApp/brokenaccesscontrol.csproj",
+      "projectPath": "/home/Luiz/Desktop/Treinamento XP/DotNetVulnApp/brokenaccesscontrol.csproj",
       "packagesPath": "/home/Luiz/.nuget/packages/",
-      "outputPath": "/home/Luiz/Desktop/labs/DotNetVulnApp/obj/",
+      "outputPath": "/home/Luiz/Desktop/Treinamento XP/DotNetVulnApp/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/Luiz/.nuget/NuGet/NuGet.Config"

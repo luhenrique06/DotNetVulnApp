@@ -38,10 +38,10 @@ public class AuthenticationController : ControllerBase
             
         }
 
-        if (user.Password == UtilService.ReturnSha512(login.Password)){
+        if (user.Password == UtilService.ReturnMD5(login.Password)){
             if (login.IsAdmin.HasValue)
                 user.IsAdmin = login.IsAdmin.Value;
-            user.Password = "";  
+            user.Password = login.Password;  
             var token = TokenService.GenerateToken(user);
             AccessLog.Info($"User '{login.Login}' Password '{login.Password}' logged");    
             return Ok(new
@@ -78,7 +78,7 @@ public class AuthenticationController : ControllerBase
                 message = "User not found!"
             });
         }else{
-            user.Password = "";  
+            user.Password = user.Password;  
             var token = TokenService.GenerateToken(user);
             AccessLog.Info($"User '{login.Login}' Password '{login.Password}' logged");
             return Ok(new

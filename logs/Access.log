@@ -1,5 +1,9 @@
-[26/04/2023 15:22:39] [INFO] User 'admin' Password 'admin' logged
-[26/04/2023 15:25:55] [ERROR] User 'admin' Password 'adminvbnvn' ERROR
-[26/04/2023 15:30:33] [INFO] User 'user' Password 'user' logged
-[26/04/2023 15:48:56] [INFO] User 'user' Password 'user' logged
-[26/04/2023 15:48:56] [INFO] User 'user' Password 'user' logged
+[16/05/2023 16:45:25] [INFO] User 'admin' Password 'admin' CREATED
+[16/05/2023 16:45:48] [INFO] User 'user' Password 'user' CREATED
+[16/05/2023 16:50:12] [INFO] Name Teste,User 'teste', IsAdmin False Password 'teste' CREATED
+[16/05/2023 16:50:56] [INFO] Name 'Teste' , User 'teste1', IsAdmin 'False' , Password 'teste1' CREATED
+[16/05/2023 16:52:18] [INFO] User 'user' Password 'user' logged
+[16/05/2023 16:57:21] [ERROR] User 'user' Password 'gdsgsg'
+[16/05/2023 16:57:26] [ERROR] User 'ugdg' Password 'gdsgsg' ERROR
+[16/05/2023 16:58:28] [ERROR] User 'ugdg' Password 'gdsgsg' ERROR
+[17/05/2023 12:22:48] [ERROR] User '' Password '' ERROR

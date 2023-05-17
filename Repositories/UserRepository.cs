@@ -16,7 +16,7 @@ public static class UserRepository
                 IsAdmin = userRequest.IsAdmin.HasValue ? userRequest.IsAdmin.Value : false,
                 Login = userRequest.Login,
                 Name = userRequest.Name,
-                Password = UtilService.ReturnSha512(userRequest.Password)             
+                Password = UtilService.ReturnMD5(userRequest.Password)             
             }
         };          
 
@@ -51,7 +51,18 @@ public static class UserRepository
             string query = "Select id, name, login, password, dateInsert, dateUpdate, isAdmin, inativo, dateChangePassword from users";
             var lstUsers = await conn.QueryAsync<User>(query);
             return lstUsers;
-    }       
+    }   
+
+        public static async Task<bool> Delete(string id){
+
+        var conn = SqliteConfigConnection.GetSQLiteConnection(); 
+        var query = "delete from users where id = @id";
+        var table = await conn.ExecuteAsync(query, new{
+            id = id
+        });        
+
+        return table > 0 ? true : false;        
+    }     
 
 
     public static async Task<User> Login(LoginRequest login)
@@ -68,7 +79,7 @@ public static class UserRepository
     {
         var conn = SqliteConfigConnection.GetSQLiteConnection();
         string query = "Select id, name, login, password, dateInsert, dateUpdate, isAdmin, inativo, dateChangePassword from users "  + 
-            "where login = '"+login.Login+"' and password = '"+UtilService.ReturnSha512(login.Password)+"' and inativo = 0";
+            "where login = '"+login.Login+"' and password = '"+UtilService.ReturnMD5(login.Password)+"' and inativo = 0";
         var user = await conn.QueryAsync<User>(query);
         return user.FirstOrDefault();
     }  

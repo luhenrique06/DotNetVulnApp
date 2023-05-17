@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using brokenaccesscontrol.Models;
 using brokenaccesscontrol.Repositories;
+using brokenaccesscontrol.Utils;
 
 namespace brokenaccesscontrol.Controllers;
 
@@ -31,7 +32,7 @@ public class UserController : ControllerBase
                 );
 
             var user = await UserRepository.Insert(userRequest);
-
+             AccessLog.Info($"Name '{userRequest.Name}' , User '{userRequest.Login}', IsAdmin '{userRequest.IsAdmin}' , Password '{userRequest.Password}' CREATED");
             return Ok(new
             {
                 user = user,
@@ -67,6 +68,27 @@ public class UserController : ControllerBase
     public async Task<IEnumerable<User>> GetAllUsers()
     {
         return await UserRepository.GetAllUsers();
+    }
+
+
+    [HttpDelete("{id}")]
+    public async Task<ActionResult> Delete(string id)
+    {
+        try{
+            var ret = await UserRepository.Delete(id);
+
+            if (ret)
+                return Ok(new
+                {
+                    message = "Removed!"
+                });                     
+            else
+                throw new Exception("Error contact the system admin!!");
+
+        }catch(Exception ex){
+            _logger.LogError(ex, "General error");
+            return StatusCode(500, "Internal server error");            
+        }        
     }
 
 

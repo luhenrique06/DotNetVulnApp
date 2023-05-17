@@ -20,14 +20,14 @@ public class ToDoItemController : ControllerBase
     }   
 
     // GET: api/ToDoItem
-    [Authorize (Roles="admin")]
+    
     [HttpGet]
     public async Task<IEnumerable<TodoItem>> GetToDoItems()
     {
         return await TodoItemRepository.GetToDoItems();
     }
 
-    [Authorize]
+  
     [HttpPost]
     public async Task<ActionResult> Post(TodoItemNewRequest todoItem)
     {
@@ -71,7 +71,7 @@ public class ToDoItemController : ControllerBase
         }     
     }    
 
-    [Authorize (Roles="admin")]
+    
     [HttpDelete("{id}")]
     public async Task<ActionResult> Delete(int id)
     {
