@@ -5,13 +5,14 @@ using System.Threading.Tasks;
 using DotNetVulnApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using DotNetVulnApp.Utils;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DotNetVulnApp.Controllers
 {
     [Route("api/[controller]")]
     public class UpdateDocsController :ControllerBase
     {
-        
+        [Authorize]
         [HttpPost]
         public IActionResult PostNewDoc([FromBody] Docs doc){
             
