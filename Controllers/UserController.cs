@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using brokenaccesscontrol.Models;
 using brokenaccesscontrol.Repositories;
 using brokenaccesscontrol.Utils;
+using Microsoft.AspNetCore.Authorization;
 
 namespace brokenaccesscontrol.Controllers;
 
@@ -71,10 +72,13 @@ public class UserController : ControllerBase
         return await UserRepository.GetAllUsers();
     }
 
+    [Authorize]
     [HttpGet("{id}")]
     public async Task<ActionResult> GetUserbById(string id)
     {
         try{
+
+
             var user = await UserRepository.GetUserById(id);
 
             if (user != null)
