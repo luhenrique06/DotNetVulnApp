@@ -45,7 +45,8 @@ public class UserController : ControllerBase
         }
 
 
-    }    
+    }
+
 
     [HttpPost]
     [Route("passwordrecovery")]

@@ -53,7 +53,7 @@ public static class UserRepository
             return lstUsers;
     }  
 
-    public static async Task<User> GetUserById(string id)
+    public static async Task<User> GetUserById(String id)
     {
         var conn = SqliteConfigConnection.GetSQLiteConnection();
         string query = "Select id, name, login, password, dateInsert, dateUpdate, isAdmin, inativo, dateChangePassword from users where id = @id";
