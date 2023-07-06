@@ -16,7 +16,7 @@ namespace brokenaccesscontrol.Services
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Name, user.Login),
+                    new Claim(ClaimTypes.Name, user.Id),
                     new Claim(ClaimTypes.Role,  user.IsAdmin ? "admin":"user"),
                     
                 }),
