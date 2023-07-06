@@ -242,3 +242,4 @@
 /home/Luiz/Desktop/DotNetVulnApp/obj/Debug/net7.0/brokenaccesscontrol.pdb
 /home/Luiz/Desktop/DotNetVulnApp/obj/Debug/net7.0/brokenaccesscontrol.genruntimeconfig.cache
 /home/Luiz/Desktop/DotNetVulnApp/obj/Debug/net7.0/ref/brokenaccesscontrol.dll
+/home/Luiz/Desktop/DotNetVulnApp/bin/Debug/net7.0/resources/DotNet VulnApp.postman_collection.json

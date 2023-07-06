@@ -1,17 +1,1 @@
-[16/05/2023 16:45:25] [INFO] User 'admin' Password 'admin' CREATED
-[16/05/2023 16:45:48] [INFO] User 'user' Password 'user' CREATED
-[16/05/2023 16:50:12] [INFO] Name Teste,User 'teste', IsAdmin False Password 'teste' CREATED
-[16/05/2023 16:50:56] [INFO] Name 'Teste' , User 'teste1', IsAdmin 'False' , Password 'teste1' CREATED
-[16/05/2023 16:52:18] [INFO] User 'user' Password 'user' logged
-[16/05/2023 16:57:21] [ERROR] User 'user' Password 'gdsgsg'
-[16/05/2023 16:57:26] [ERROR] User 'ugdg' Password 'gdsgsg' ERROR
-[16/05/2023 16:58:28] [ERROR] User 'ugdg' Password 'gdsgsg' ERROR
-[17/05/2023 12:22:48] [ERROR] User '' Password '' ERROR
-[17/05/2023 15:04:02] [INFO] User 'admin' Password 'admin' logged
-[05/07/2023 22:01:38] [INFO] User 'admin' Password 'admin' logged
-[05/07/2023 22:02:16] [INFO] User 'admin' Password 'admin' logged
-[05/07/2023 23:48:42] [INFO] User 'admin' Password 'admin' logged
-[05/07/2023 23:51:56] [INFO] User 'admin' Password 'admin' logged
-[06/07/2023 00:02:26] [INFO] User 'admin' Password 'admin' logged
-[06/07/2023 00:05:33] [INFO] User 'admin' Password 'admin' logged
-[06/07/2023 00:06:36] [INFO] User 'admin' Password 'admin' logged
+
