@@ -66,9 +66,31 @@ public class UserController : ControllerBase
 
     [HttpGet]
     public async Task<IEnumerable<User>> GetAllUsers()
-    {
+    {   
         return await UserRepository.GetAllUsers();
     }
+
+    [HttpGet("{id}")]
+    public async Task<ActionResult> GetUserbById(string id)
+    {
+        try{
+            var user = await UserRepository.GetUserById(id);
+
+            if (user != null)
+                return Ok(new
+                {
+                    user
+                });                     
+            else
+                return NotFound(new{
+                    message = "User not found!!"
+                });
+
+        }catch(Exception ex){
+            _logger.LogError(ex, "General error");
+            return StatusCode(500, "Internal server error");            
+        }     
+    }  
 
 
     [HttpDelete("{id}")]
