@@ -78,7 +78,7 @@ public class UserController : ControllerBase
     {
         try{
 
-
+            
             var user = await UserRepository.GetUserById(id);
 
             if (user != null)
