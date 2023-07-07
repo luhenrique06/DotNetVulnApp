@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "C8QG1IUPCEopeMEgLsEGR2z7rSjD4Avx+RHPLYP4c4sbpU9syynN15aRVVM3O3KL+fy8SXMwcK19B01D41t1fQ==",
+  "dgSpecHash": "N5I4punjcIOUibEnXsvSYGxS6W7cvYHWtOA1vO9SmhP6vkDP1Jrh/gKa3qEO1quS2iLhDMhlSwoRqZMBhF1p4w==",
   "success": true,
-  "projectFilePath": "/home/Luiz/Desktop/DotNetVulnApp/brokenaccesscontrol.csproj",
+  "projectFilePath": "/home/Luiz/Desktop/teste/DotNetVulnApp/brokenaccesscontrol.csproj",
   "expectedPackageFiles": [
     "/home/Luiz/.nuget/packages/bouncycastle/1.8.6.1/bouncycastle.1.8.6.1.nupkg.sha512",
     "/home/Luiz/.nuget/packages/dapper/2.0.123/dapper.2.0.123.nupkg.sha512",
