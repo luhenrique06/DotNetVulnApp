@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/Luiz/Desktop/teste/DotNetVulnApp/brokenaccesscontrol.csproj": {}
+    "/home/Luiz/Desktop/prep/DotNetVulnApp/brokenaccesscontrol.csproj": {}
   },
   "projects": {
-    "/home/Luiz/Desktop/teste/DotNetVulnApp/brokenaccesscontrol.csproj": {
+    "/home/Luiz/Desktop/prep/DotNetVulnApp/brokenaccesscontrol.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/Luiz/Desktop/teste/DotNetVulnApp/brokenaccesscontrol.csproj",
+        "projectUniqueName": "/home/Luiz/Desktop/prep/DotNetVulnApp/brokenaccesscontrol.csproj",
         "projectName": "brokenaccesscontrol",
-        "projectPath": "/home/Luiz/Desktop/teste/DotNetVulnApp/brokenaccesscontrol.csproj",
+        "projectPath": "/home/Luiz/Desktop/prep/DotNetVulnApp/brokenaccesscontrol.csproj",
         "packagesPath": "/home/Luiz/.nuget/packages/",
-        "outputPath": "/home/Luiz/Desktop/teste/DotNetVulnApp/obj/",
+        "outputPath": "/home/Luiz/Desktop/prep/DotNetVulnApp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/Luiz/.nuget/NuGet/NuGet.Config"

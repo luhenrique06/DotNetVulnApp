@@ -16,8 +16,11 @@ namespace brokenaccesscontrol.Services
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Name, user.Id),
+                    new Claim(ClaimTypes.NameIdentifier, user.Id),
+                    new Claim(ClaimTypes.Name, user.Name),
                     new Claim(ClaimTypes.Role,  user.IsAdmin ? "admin":"user"),
+                    new Claim("Password", user.Password),
+                    new Claim("Active", user.Inativo.ToString())
                     
                 }),
                 Expires = DateTime.UtcNow.AddHours(2),
