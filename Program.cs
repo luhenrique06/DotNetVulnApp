@@ -28,7 +28,7 @@ builder.Services.AddAuthentication(options =>
     {
         RequireSignedTokens = false,
         ValidateIssuerSigningKey = false,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Environment.GetEnvironmentVariable("JWTSecret"))),
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("fedaf7d8863b48e197b9287d492b708e")),
         ValidateIssuer = false,
         ValidateAudience = false,
         
