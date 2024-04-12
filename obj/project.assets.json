@@ -2203,11 +2203,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/Luiz/Desktop/prep/DotNetVulnApp/brokenaccesscontrol.csproj",
+      "projectUniqueName": "/home/Luiz/Desktop/vivo/DotNetVulnApp/brokenaccesscontrol.csproj",
       "projectName": "brokenaccesscontrol",
-      "projectPath": "/home/Luiz/Desktop/prep/DotNetVulnApp/brokenaccesscontrol.csproj",
+      "projectPath": "/home/Luiz/Desktop/vivo/DotNetVulnApp/brokenaccesscontrol.csproj",
       "packagesPath": "/home/Luiz/.nuget/packages/",
-      "outputPath": "/home/Luiz/Desktop/prep/DotNetVulnApp/obj/",
+      "outputPath": "/home/Luiz/Desktop/vivo/DotNetVulnApp/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/Luiz/.nuget/NuGet/NuGet.Config"
@@ -2278,7 +2278,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.203/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.408/RuntimeIdentifierGraph.json"
       }
     }
   },

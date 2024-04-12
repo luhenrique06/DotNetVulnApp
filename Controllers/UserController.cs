@@ -3,6 +3,8 @@ using brokenaccesscontrol.Models;
 using brokenaccesscontrol.Repositories;
 using brokenaccesscontrol.Utils;
 using Microsoft.AspNetCore.Authorization;
+using DotNetVulnApp.Models;
+using brokenaccesscontrol.Services;
 
 namespace brokenaccesscontrol.Controllers;
 
@@ -116,6 +118,20 @@ public class UserController : ControllerBase
             _logger.LogError(ex, "General error");
             return StatusCode(500, "Internal server error");            
         }        
+    }
+
+    [HttpPost]
+    [Route("message")]
+    public IActionResult EncryptMessage(Message text){
+        try
+        {
+            var encryptMessage = TokenService.EncryptJWE(text);
+            return Ok(encryptMessage);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Erro ao criptografar: {ex.Message}");
+        }
     }
 
 
