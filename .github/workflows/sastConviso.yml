@@ -1,0 +1,12 @@
+conviso-ast:
+  image: convisoappsec/convisocli:latest
+  services:
+    - docker:dind
+  only:
+    variables:
+      - $FLOW_API_KEY
+  script:
+    - export FLOW_COMPANY_ID=600
+    - conviso ast run
+  tags:
+    - docker
