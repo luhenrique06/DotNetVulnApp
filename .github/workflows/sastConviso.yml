@@ -1,11 +1,19 @@
-conviso-ast:
-  image: convisoappsec/convisocli:latest
-  services:
-    - docker:dind
-  only:
-    variables:
-      - $FLOW_API_KEY
-  script:
-    - conviso ast run
-  tags:
-    - docker
+name: Conviso SAST
+on:
+ push:
+   branches: [ main ]
+ pull_request:
+   branches: [ main ]
+ workflow_dispatch:
+jobs:
+ conviso-sast:
+   runs-on: ubuntu-latest
+   container:
+     image: convisoappsec/flowcli
+     env:
+       FLOW_API_KEY:  ${{secrets.CONVISO_API_KEY}}
+   steps:
+   - uses: actions/checkout@v2
+
+   - name: Run SAST
+     run: conviso sast run
