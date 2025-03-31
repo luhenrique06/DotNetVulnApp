@@ -1,30 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "/home/Luiz/Desktop/vivo/DotNetVulnApp/brokenaccesscontrol.csproj": {}
+    "/Users/luiz/Documents/DotNetVulnApp/brokenaccesscontrol.csproj": {}
   },
   "projects": {
-    "/home/Luiz/Desktop/vivo/DotNetVulnApp/brokenaccesscontrol.csproj": {
+    "/Users/luiz/Documents/DotNetVulnApp/brokenaccesscontrol.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/Luiz/Desktop/vivo/DotNetVulnApp/brokenaccesscontrol.csproj",
+        "projectUniqueName": "/Users/luiz/Documents/DotNetVulnApp/brokenaccesscontrol.csproj",
         "projectName": "brokenaccesscontrol",
-        "projectPath": "/home/Luiz/Desktop/vivo/DotNetVulnApp/brokenaccesscontrol.csproj",
-        "packagesPath": "/home/Luiz/.nuget/packages/",
-        "outputPath": "/home/Luiz/Desktop/vivo/DotNetVulnApp/obj/",
+        "projectPath": "/Users/luiz/Documents/DotNetVulnApp/brokenaccesscontrol.csproj",
+        "packagesPath": "/Users/luiz/.nuget/packages/",
+        "outputPath": "/Users/luiz/Documents/DotNetVulnApp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/Luiz/.nuget/NuGet/NuGet.Config"
+          "/Users/luiz/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net9.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net9.0": {
+            "targetAlias": "net9.0",
             "projectReferences": {}
           }
         },
@@ -32,11 +32,17 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net9.0": {
+          "targetAlias": "net9.0",
           "dependencies": {
             "BouncyCastle": {
               "target": "Package",
@@ -82,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.408/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

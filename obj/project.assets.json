@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {
+    "net9.0": {
       "BouncyCastle/1.8.6.1": {
         "type": "package",
         "compile": {
@@ -2188,7 +2188,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net7.0": [
+    "net9.0": [
       "BouncyCastle >= 1.8.6.1",
       "Dapper >= 2.0.123",
       "Microsoft.AspNetCore.Authentication >= 2.2.0",
@@ -2198,29 +2198,29 @@
     ]
   },
   "packageFolders": {
-    "/home/Luiz/.nuget/packages/": {}
+    "/Users/luiz/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/Luiz/Desktop/vivo/DotNetVulnApp/brokenaccesscontrol.csproj",
+      "projectUniqueName": "/Users/luiz/Documents/DotNetVulnApp/brokenaccesscontrol.csproj",
       "projectName": "brokenaccesscontrol",
-      "projectPath": "/home/Luiz/Desktop/vivo/DotNetVulnApp/brokenaccesscontrol.csproj",
-      "packagesPath": "/home/Luiz/.nuget/packages/",
-      "outputPath": "/home/Luiz/Desktop/vivo/DotNetVulnApp/obj/",
+      "projectPath": "/Users/luiz/Documents/DotNetVulnApp/brokenaccesscontrol.csproj",
+      "packagesPath": "/Users/luiz/.nuget/packages/",
+      "outputPath": "/Users/luiz/Documents/DotNetVulnApp/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/Luiz/.nuget/NuGet/NuGet.Config"
+        "/Users/luiz/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
-        "net7.0"
+        "net9.0"
       ],
       "sources": {
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net9.0": {
+          "targetAlias": "net9.0",
           "projectReferences": {}
         }
       },
@@ -2228,11 +2228,17 @@
         "warnAsError": [
           "NU1605"
         ]
-      }
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
-      "net7.0": {
-        "targetAlias": "net7.0",
+      "net9.0": {
+        "targetAlias": "net9.0",
         "dependencies": {
           "BouncyCastle": {
             "target": "Package",
@@ -2278,19 +2284,59 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.408/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
   "logs": [
     {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'BouncyCastle' 1.8.6.1 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-6xx3-rg99-gc3p",
+      "libraryId": "BouncyCastle",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    },
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'BouncyCastle' 1.8.6.1 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-8xfc-gm6g-vgpv",
+      "libraryId": "BouncyCastle",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    },
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'BouncyCastle' 1.8.6.1 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-m44j-cfrm-g8qc",
+      "libraryId": "BouncyCastle",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    },
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'BouncyCastle' 1.8.6.1 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-v435-xc8x-wvr9",
+      "libraryId": "BouncyCastle",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    },
+    {
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "O pacote 'BouncyCastle 1.8.6.1' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' em vez da estrutura de destino do projeto 'net7.0'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
+      "message": "Package 'BouncyCastle 1.8.6.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net9.0'. This package may not be fully compatible with your project.",
       "libraryId": "BouncyCastle",
       "targetGraphs": [
-        "net7.0"
+        "net9.0"
       ]
     }
   ]
