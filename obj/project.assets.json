@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net9.0": {
+    "net7.0": {
       "BouncyCastle/1.8.6.1": {
         "type": "package",
         "compile": {
@@ -2188,7 +2188,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net9.0": [
+    "net7.0": [
       "BouncyCastle >= 1.8.6.1",
       "Dapper >= 2.0.123",
       "Microsoft.AspNetCore.Authentication >= 2.2.0",
@@ -2213,14 +2213,14 @@
         "/Users/luiz/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
-        "net9.0"
+        "net7.0"
       ],
       "sources": {
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net9.0": {
-          "targetAlias": "net9.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "projectReferences": {}
         }
       },
@@ -2237,8 +2237,8 @@
       "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
-      "net9.0": {
-        "targetAlias": "net9.0",
+      "net7.0": {
+        "targetAlias": "net7.0",
         "dependencies": {
           "BouncyCastle": {
             "target": "Package",
@@ -2276,6 +2276,20 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[7.0.20, 7.0.20]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.osx-arm64",
+            "version": "[7.0.20, 7.0.20]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[7.0.20, 7.0.20]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -2284,7 +2298,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.202/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.202/RuntimeIdentifierGraph.json"
       }
     }
   },
@@ -2296,7 +2310,7 @@
       "message": "Package 'BouncyCastle' 1.8.6.1 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-6xx3-rg99-gc3p",
       "libraryId": "BouncyCastle",
       "targetGraphs": [
-        "net9.0"
+        "net7.0"
       ]
     },
     {
@@ -2306,7 +2320,7 @@
       "message": "Package 'BouncyCastle' 1.8.6.1 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-8xfc-gm6g-vgpv",
       "libraryId": "BouncyCastle",
       "targetGraphs": [
-        "net9.0"
+        "net7.0"
       ]
     },
     {
@@ -2316,7 +2330,7 @@
       "message": "Package 'BouncyCastle' 1.8.6.1 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-m44j-cfrm-g8qc",
       "libraryId": "BouncyCastle",
       "targetGraphs": [
-        "net9.0"
+        "net7.0"
       ]
     },
     {
@@ -2326,17 +2340,17 @@
       "message": "Package 'BouncyCastle' 1.8.6.1 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-v435-xc8x-wvr9",
       "libraryId": "BouncyCastle",
       "targetGraphs": [
-        "net9.0"
+        "net7.0"
       ]
     },
     {
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'BouncyCastle 1.8.6.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net9.0'. This package may not be fully compatible with your project.",
+      "message": "Package 'BouncyCastle 1.8.6.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
       "libraryId": "BouncyCastle",
       "targetGraphs": [
-        "net9.0"
+        "net7.0"
       ]
     }
   ]

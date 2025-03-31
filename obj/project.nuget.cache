@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "F85Ay/AX4Fs=",
+  "dgSpecHash": "bpDXXxqGztg=",
   "success": true,
   "projectFilePath": "/Users/luiz/Documents/DotNetVulnApp/brokenaccesscontrol.csproj",
   "expectedPackageFiles": [
@@ -61,7 +61,10 @@
     "/Users/luiz/.nuget/packages/system.security.cryptography.xml/4.5.0/system.security.cryptography.xml.4.5.0.nupkg.sha512",
     "/Users/luiz/.nuget/packages/system.security.permissions/4.5.0/system.security.permissions.4.5.0.nupkg.sha512",
     "/Users/luiz/.nuget/packages/system.security.principal.windows/4.5.0/system.security.principal.windows.4.5.0.nupkg.sha512",
-    "/Users/luiz/.nuget/packages/system.text.encodings.web/4.5.0/system.text.encodings.web.4.5.0.nupkg.sha512"
+    "/Users/luiz/.nuget/packages/system.text.encodings.web/4.5.0/system.text.encodings.web.4.5.0.nupkg.sha512",
+    "/Users/luiz/.nuget/packages/microsoft.netcore.app.ref/7.0.20/microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
+    "/Users/luiz/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.20/microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512",
+    "/Users/luiz/.nuget/packages/microsoft.netcore.app.host.osx-arm64/7.0.20/microsoft.netcore.app.host.osx-arm64.7.0.20.nupkg.sha512"
   ],
   "logs": [
     {
@@ -71,7 +74,7 @@
       "message": "Package 'BouncyCastle' 1.8.6.1 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-6xx3-rg99-gc3p",
       "libraryId": "BouncyCastle",
       "targetGraphs": [
-        "net9.0"
+        "net7.0"
       ]
     },
     {
@@ -81,7 +84,7 @@
       "message": "Package 'BouncyCastle' 1.8.6.1 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-8xfc-gm6g-vgpv",
       "libraryId": "BouncyCastle",
       "targetGraphs": [
-        "net9.0"
+        "net7.0"
       ]
     },
     {
@@ -91,7 +94,7 @@
       "message": "Package 'BouncyCastle' 1.8.6.1 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-m44j-cfrm-g8qc",
       "libraryId": "BouncyCastle",
       "targetGraphs": [
-        "net9.0"
+        "net7.0"
       ]
     },
     {
@@ -101,17 +104,17 @@
       "message": "Package 'BouncyCastle' 1.8.6.1 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-v435-xc8x-wvr9",
       "libraryId": "BouncyCastle",
       "targetGraphs": [
-        "net9.0"
+        "net7.0"
       ]
     },
     {
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'BouncyCastle 1.8.6.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net9.0'. This package may not be fully compatible with your project.",
+      "message": "Package 'BouncyCastle 1.8.6.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
       "libraryId": "BouncyCastle",
       "targetGraphs": [
-        "net9.0"
+        "net7.0"
       ]
     }
   ]

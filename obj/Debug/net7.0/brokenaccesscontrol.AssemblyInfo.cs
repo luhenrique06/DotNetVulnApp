@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("brokenaccesscontrol")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bf7cdd9026f72e086c42081fbe1c3113bb9b9f11")]
 [assembly: System.Reflection.AssemblyProductAttribute("brokenaccesscontrol")]
 [assembly: System.Reflection.AssemblyTitleAttribute("brokenaccesscontrol")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
