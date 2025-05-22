@@ -1,0 +1,20 @@
+name: CI
+on:
+ workflow_dispatch:
+ push:
+   branches: [ main ]
+jobs:
+ conviso-ast:
+   runs-on: ubuntu-latest
+   container:
+     image: convisoappsec/convisocli:latest
+     env:
+       CONVISO_API_KEY: ${{secrets.CONVISO_API_KEY}}
+   steps:
+   - uses: actions/checkout@v4
+   - name: Run AST
+     run: |
+          export IMAGE_NAME="vulnerables/web-dvwa"
+          export IMAGE_TAG="latest"
+          docker pull $IMAGE_NAME:$IMAGE_TAG
+          conviso container run "$IMAGE_NAME:$IMAGE_TAG" --company-id 908
