@@ -1,19 +1,1 @@
-name: CI
-on:
- push:
-   branches: [ main ]
- pull_request:
-   branches: [ main ]
 
-jobs:
- conviso-ast:
-   runs-on: ubuntu-latest
-   container:
-     image: convisoappsec/convisocli
-     env:
-       CONVISO_API_KEY:  ${{secrets.CONVISO_API_KEY}}
-   steps:
-   - uses: actions/checkout@v4
-
-   - name: Run AST
-     run: conviso ast run --vulnerability-auto-close --company-id 908
