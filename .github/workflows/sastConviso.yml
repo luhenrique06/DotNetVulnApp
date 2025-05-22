@@ -16,4 +16,4 @@ jobs:
    - uses: actions/checkout@v4
 
    - name: Run AST
-     run: conviso ast run --vulnerability-auto-close --company-id 908
+     run: conviso ast run --vulnerability-auto-close --company-id 443
