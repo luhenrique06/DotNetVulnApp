@@ -1,19 +1,19 @@
-name: Conviso SAST
+name: CI
 on:
  push:
    branches: [ main ]
  pull_request:
    branches: [ main ]
- workflow_dispatch:
+
 jobs:
- conviso-sast:
+ conviso-ast:
    runs-on: ubuntu-latest
    container:
-     image: convisoappsec/flowcli
+     image: convisoappsec/convisocli
      env:
-       FLOW_API_KEY:  ${{secrets.CONVISO_API_KEY}}
+       CONVISO_API_KEY:  ${{secrets.CONVISO_API_KEY}}
    steps:
-   - uses: actions/checkout@v2
+   - uses: actions/checkout@v4
 
-   - name: Run SAST
-     run: conviso sast run
+   - name: Run AST
+     run: conviso ast run --vulnerability-auto-close --company-id 908
