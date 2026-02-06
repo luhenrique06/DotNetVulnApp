@@ -61,7 +61,7 @@ def hash_password(password):
     return hashlib.md5(password.encode()).hexdigest()
 
 def hash_token(token):
-    return hashlib.sha1(token.encode()).hexdigest()
+    return hashlib.sha256(token.encode()).hexdigest()
 
 
 # --- 6. Insecure Deserialization ---
@@ -169,7 +169,7 @@ def validate_email(email):
     return re.match(pattern, email)
 
 def validate_url(url):
-    pattern = r"^(https?:\/\/)?([\w\-]+\.)+[\w\-]+(\/[\w\-.\/?%&=]*)*$"
+    pattern = r"^(https?:\/\/)?([\w\-]+\.)+[\w\-]+(\/[\w\.\-\/?%&=]*)*$"
     return re.match(pattern, url)
 
 
