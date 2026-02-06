@@ -5,6 +5,7 @@ import hashlib
 import pickle
 import yaml
 import xml.etree.ElementTree as ET
+from sqlalchemy import text
 
 # --- 1. Hardcoded Credentials ---
 DB_HOST = "production-db.example.com"
@@ -35,8 +36,8 @@ def call_external_api(endpoint):
 def get_user(username):
     conn = get_db_connection()
     cursor = conn.cursor()
-    query = "SELECT * FROM users WHERE username = '" + username + "'"
-    cursor.execute(query)
+    query = "SELECT * FROM users WHERE username = %s"
+    cursor.execute(query, (username,))
     return cursor.fetchone()
 
 
@@ -169,7 +170,7 @@ def validate_email(email):
     return re.match(pattern, email)
 
 def validate_url(url):
-    pattern = r"^(https?:\/\/)?([\w\-]+\.)+[\w\-]+(\/[\w\-.\/?%&=]*)*$"
+    pattern = r"^(https?:\/\/)?([\w\-]+\.)+[\w\-]+(\/[\w\.\-\/?%&=]*)*$"
     return re.match(pattern, url)
 
 
