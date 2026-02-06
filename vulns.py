@@ -89,14 +89,34 @@ def fetch_url(url):
 
 
 # --- 10. Open Redirect ---
-from flask import Flask, redirect, request
+from flask import Flask, redirect, request, url_for
+from urllib.parse import urlparse, urljoin
 
 app = Flask(__name__)
+
+def is_safe_url(target):
+    """
+    Validate that the target URL is safe for redirection.
+    Only allows redirects to the same host.
+    """
+    if not target:
+        return False
+    
+    ref_url = urlparse(request.host_url)
+    test_url = urlparse(urljoin(request.host_url, target))
+    
+    return test_url.scheme in ('http', 'https') and ref_url.netloc == test_url.netloc
 
 @app.route("/redirect")
 def open_redirect():
     target = request.args.get("url")
-    return redirect(target)
+    
+    # Validate the target URL before redirecting
+    if target and is_safe_url(target):
+        return redirect(target)
+    else:
+        # Redirect to a safe default location if validation fails
+        return redirect(url_for('index'))
 
 
 # --- 11. XSS (Cross-Site Scripting) ---
@@ -169,7 +189,7 @@ def validate_email(email):
     return re.match(pattern, email)
 
 def validate_url(url):
-    pattern = r"^(https?:\/\/)?([\w\-]+\.)+[\w\-]+(\/[\w\-.\/?%&=]*)*$"
+    pattern = r"^(https?:\/\/)([\w\-]+\.)+[\w\-]+(\/[\w\.\/?%&=]*)*$"
     return re.match(pattern, url)
 
 
