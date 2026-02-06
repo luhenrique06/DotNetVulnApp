@@ -169,7 +169,7 @@ def validate_email(email):
     return re.match(pattern, email)
 
 def validate_url(url):
-    pattern = r"^(https?:\/\/)?([\w\-]+\.)+[\w\-]+(\/[\w\-.\/?%&=]*)*$"
+    pattern = r"^(https?:\/\/)([\w\-]+\.)+[\w\-]+(\/[\w\.\-\/?%&=]*)*$"
     return re.match(pattern, url)
 
 
@@ -267,15 +267,15 @@ def process_upload(filepath):
 
 
 # --- 26. Hardcoded IP / Internal Network Exposure ---
-INTERNAL_API = "http://192.168.1.100:8080/api/v1"
-DEBUG_ENDPOINT = "http://10.0.0.5:9090/debug/pprof"
+INTERNAL_API = "https://192.168.1.100:8080/api/v1"
+DEBUG_ENDPOINT = "https://10.0.0.5:9090/debug/pprof"
 MONGO_URI = "mongodb://admin:password123@172.16.0.50:27017/production"
 
 def get_internal_data():
-    return requests.get(INTERNAL_API + "/users").json()
+    return requests.get(INTERNAL_API + "/users", verify=True).json()
 
 def health_check():
-    return requests.get(DEBUG_ENDPOINT).status_code
+    return requests.get(DEBUG_ENDPOINT, verify=True).status_code
 
 
 # --- 27. Zip Slip (Arbitrary File Write via Archive Extraction) ---
