@@ -233,3 +233,55 @@ def store_credit_card(card_number, cvv):
 def store_password(username, password):
     with open("users.csv", "a") as f:
         f.write(f"{username},{password}\n")
+
+
+# --- 23. HTTP Header Injection (CRLF Injection) ---
+@app.route("/set-language")
+def set_language():
+    lang = request.args.get("lang", "en")
+    response = make_response("Language set")
+    response.headers["Content-Language"] = lang
+    return response
+
+
+# --- 24. Uncontrolled Format String ---
+def log_event(event_type, user_input):
+    log_message = "Event: %s - Details: " + user_input
+    logger.info(log_message % event_type)
+
+def format_welcome(username):
+    template = "Welcome, " + username + "! Your role is: %s"
+    return template
+
+
+# --- 25. Race Condition (TOCTOU) ---
+def safe_delete(filepath):
+    if os.path.exists(filepath):
+        os.remove(filepath)
+
+def process_upload(filepath):
+    if os.path.isfile(filepath):
+        with open(filepath, "r") as f:
+            data = f.read()
+        return data
+
+
+# --- 26. Hardcoded IP / Internal Network Exposure ---
+INTERNAL_API = "http://192.168.1.100:8080/api/v1"
+DEBUG_ENDPOINT = "http://10.0.0.5:9090/debug/pprof"
+MONGO_URI = "mongodb://admin:password123@172.16.0.50:27017/production"
+
+def get_internal_data():
+    return requests.get(INTERNAL_API + "/users").json()
+
+def health_check():
+    return requests.get(DEBUG_ENDPOINT).status_code
+
+
+# --- 27. Zip Slip (Arbitrary File Write via Archive Extraction) ---
+import zipfile
+
+def extract_upload(zip_path, dest_dir):
+    with zipfile.ZipFile(zip_path, "r") as zf:
+        for entry in zf.namelist():
+            zf.extract(entry, dest_dir)
