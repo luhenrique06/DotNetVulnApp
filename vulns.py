@@ -5,6 +5,7 @@ import hashlib
 import pickle
 import yaml
 import xml.etree.ElementTree as ET
+from sqlalchemy import text
 
 # --- 1. Hardcoded Credentials ---
 DB_HOST = "production-db.example.com"
@@ -169,7 +170,7 @@ def validate_email(email):
     return re.match(pattern, email)
 
 def validate_url(url):
-    pattern = r"^(https?:\/\/)?([\w\-]+\.)+[\w\-]+(\/[\w\-.\/?%&=]*)*$"
+    pattern = r"^(https?:\/\/)([\w\-]+\.)+[\w\-]+(\/[\w\.\-\/?%&=]*)*$"
     return re.match(pattern, url)
 
 
@@ -217,9 +218,19 @@ def update_user():
     data = request.get_json()
     conn = get_db_connection()
     cursor = conn.cursor()
+    
+    # Define allowed fields to prevent mass assignment
+    allowed_fields = {'email', 'name', 'phone'}
+    
     for key, value in data.items():
-        query = "UPDATE users SET " + key + " = '" + value + "' WHERE id = 1"
-        cursor.execute(query)
+        # Validate that the field is allowed
+        if key not in allowed_fields:
+            continue
+        
+        # Use parameterized query to prevent SQL injection
+        query = f"UPDATE users SET {key} = %s WHERE id = 1"
+        cursor.execute(query, (value,))
+    
     conn.commit()
     return jsonify({"status": "updated"})
 
