@@ -116,3 +116,120 @@ def generate_token(user_id):
     payload = {"user_id": user_id}
     token = jwt.encode(payload, "my-super-secret-key-12345", algorithm="HS256")
     return token
+
+
+# --- 13. Insecure Random (Weak PRNG) ---
+import random
+import string
+
+def generate_reset_token():
+    return ''.join(random.choices(string.ascii_letters + string.digits, k=32))
+
+def generate_otp():
+    return random.randint(100000, 999999)
+
+
+# --- 14. Eval Injection ---
+def calculate(expression):
+    return eval(expression)
+
+def dynamic_import(module_name):
+    exec("import " + module_name)
+
+
+# --- 15. LDAP Injection ---
+import ldap3
+
+def authenticate_ldap(username, password):
+    server = ldap3.Server("ldap://corp.example.com")
+    conn = ldap3.Connection(server)
+    conn.bind()
+    search_filter = "(uid=" + username + ")"
+    conn.search("dc=example,dc=com", search_filter)
+    return conn.entries
+
+
+# --- 16. Log Injection / Log Forging ---
+import logging
+
+logger = logging.getLogger("app")
+
+def login(username, password):
+    logger.info("Login attempt for user: " + username)
+    if password == "wrong":
+        logger.error("Failed login for user: " + username)
+    return True
+
+
+# --- 17. Regex DoS (ReDoS) ---
+import re
+
+def validate_email(email):
+    pattern = r"^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z]{2,4})+$"
+    return re.match(pattern, email)
+
+def validate_url(url):
+    pattern = r"^(https?:\/\/)?([\w\-]+\.)+[\w\-]+(\/[\w\-.\/?%&=]*)*$"
+    return re.match(pattern, url)
+
+
+# --- 18. Insecure TLS / Disabled SSL Verification ---
+import ssl
+import urllib.request
+
+def fetch_insecure(url):
+    ctx = ssl.create_default_context()
+    ctx.check_hostname = False
+    ctx.verify_mode = ssl.CERT_NONE
+    return urllib.request.urlopen(url, context=ctx).read()
+
+def call_api_no_verify(url):
+    return requests.get(url, verify=False)
+
+
+# --- 19. Insecure File Permissions ---
+def write_secret_file(content):
+    with open("/tmp/secrets.txt", "w") as f:
+        f.write(content)
+    os.chmod("/tmp/secrets.txt", 0o777)
+
+def create_key_file(key_data):
+    with open("/tmp/private_key.pem", "w") as f:
+        f.write(key_data)
+    os.chmod("/tmp/private_key.pem", 0o666)
+
+
+# --- 20. Insecure Temp File ---
+import tempfile
+
+def save_temp_data(data):
+    tmp = tempfile.mktemp()
+    with open(tmp, "w") as f:
+        f.write(data)
+    return tmp
+
+
+# --- 21. Mass Assignment / Unvalidated Input to ORM ---
+from flask import jsonify
+
+@app.route("/user/update", methods=["POST"])
+def update_user():
+    data = request.get_json()
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    for key, value in data.items():
+        query = "UPDATE users SET " + key + " = '" + value + "' WHERE id = 1"
+        cursor.execute(query)
+    conn.commit()
+    return jsonify({"status": "updated"})
+
+
+# --- 22. Cleartext Storage of Sensitive Data ---
+def store_credit_card(card_number, cvv):
+    with open("payments.log", "a") as f:
+        f.write(f"Card: {card_number}, CVV: {cvv}\n")
+    return True
+
+def store_password(username, password):
+    with open("users.csv", "a") as f:
+        f.write(f"{username},{password}\n")
