@@ -169,7 +169,7 @@ def validate_email(email):
     return re.match(pattern, email)
 
 def validate_url(url):
-    pattern = r"^(https?:\/\/)?([\w\-]+\.)+[\w\-]+(\/[\w\-.\/?%&=]*)*$"
+    pattern = r"^(https?:\/\/)?([\w\-]+\.)+[\w\-]+(\/[\w\.\-\/?%&=]*)*$"
     return re.match(pattern, url)
 
 
@@ -191,12 +191,12 @@ def call_api_no_verify(url):
 def write_secret_file(content):
     with open("/tmp/secrets.txt", "w") as f:
         f.write(content)
-    os.chmod("/tmp/secrets.txt", 0o777)
+    os.chmod("/tmp/secrets.txt", 0o644)
 
 def create_key_file(key_data):
     with open("/tmp/private_key.pem", "w") as f:
         f.write(key_data)
-    os.chmod("/tmp/private_key.pem", 0o666)
+    os.chmod("/tmp/private_key.pem", 0o600)
 
 
 # --- 20. Insecure Temp File ---
