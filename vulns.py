@@ -169,7 +169,7 @@ def validate_email(email):
     return re.match(pattern, email)
 
 def validate_url(url):
-    pattern = r"^(https?:\/\/)?([\w\-]+\.)+[\w\-]+(\/[\w\-.\/?%&=]*)*$"
+    pattern = r"^(https?:\/\/)?([\w\-]+\.)+[\w\-]+(\/[\w\.\-\/?%&=]*)*$"
     return re.match(pattern, url)
 
 
@@ -178,13 +178,14 @@ import ssl
 import urllib.request
 
 def fetch_insecure(url):
-    ctx = ssl.create_default_context()
-    ctx.check_hostname = False
-    ctx.verify_mode = ssl.CERT_NONE
-    return urllib.request.urlopen(url, context=ctx).read()
+    # Fixed: Re-enabled SSL certificate verification
+    # Using default context which verifies certificates
+    return urllib.request.urlopen(url).read()
 
 def call_api_no_verify(url):
-    return requests.get(url, verify=False)
+    # Fixed: Removed verify=False to enable SSL certificate verification
+    # The default behavior of requests.get() is to verify SSL certificates
+    return requests.get(url)
 
 
 # --- 19. Insecure File Permissions ---
