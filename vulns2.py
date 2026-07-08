@@ -2,7 +2,7 @@ import mysql.connector
 import os
 import subprocess
 import hashlib
-import pickle
+import json
 import yaml
 import xml.etree.ElementTree as ET
 
@@ -66,7 +66,7 @@ def hash_token(token):
 
 # --- 6. Insecure Deserialization ---
 def load_session(data):
-    return pickle.loads(data)
+    return json.loads(data)
 
 
 # --- 7. YAML Deserialization (Arbitrary Code Execution) ---
@@ -169,7 +169,7 @@ def validate_email(email):
     return re.match(pattern, email)
 
 def validate_url(url):
-    pattern = r"^(https?:\/\/)?([\w\-]+\.)+[\w\-]+(\/[\w\.\-\/?%&=]*)*$"
+    pattern = r"^(https?:\/\/)?([\.\w\-]+\.)+[\w\-]+(\/[\w\.\-\/?%&=]*)*$"
     return re.match(pattern, url)
 
 
