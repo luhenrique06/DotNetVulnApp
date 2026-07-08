@@ -35,7 +35,7 @@ def call_external_api(endpoint):
 def get_user(username):
     conn = get_db_connection()
     cursor = conn.cursor()
-    query = "SELECT * FROM users WHERE username = '" + username + "'"
+    query = "SELECT * FROM users WHERE username = " + "'" + username + "'"
     cursor.execute(query)
     return cursor.fetchone()
 
@@ -169,7 +169,7 @@ def validate_email(email):
     return re.match(pattern, email)
 
 def validate_url(url):
-    pattern = r"^(https?:\/\/)?([\w\-]+\.)+[\w\-]+(\/[\w\-.\/?%&=]*)*$"
+    pattern = r"^(https?:\/\/)?([\.\w\-]+\.)+[\w\-]+(\/[\w\-.\/\?%&=]*)*$"
     return re.match(pattern, url)
 
 
@@ -212,14 +212,21 @@ def save_temp_data(data):
 # --- 21. Mass Assignment / Unvalidated Input to ORM ---
 from flask import jsonify
 
+# Allowlist of permitted column names that can be updated
+ALLOWED_USER_FIELDS = {"email", "display_name", "bio", "phone"}
+
 @app.route("/user/update", methods=["POST"])
 def update_user():
     data = request.get_json()
     conn = get_db_connection()
     cursor = conn.cursor()
     for key, value in data.items():
-        query = "UPDATE users SET " + key + " = '" + value + "' WHERE id = 1"
-        cursor.execute(query)
+        # Validate the column name against an allowlist to prevent SQL injection
+        if key not in ALLOWED_USER_FIELDS:
+            continue
+        # Use parameterized query to safely pass the value
+        query = "UPDATE users SET " + key + " = %s WHERE id = 1"
+        cursor.execute(query, (value,))
     conn.commit()
     return jsonify({"status": "updated"})
 
