@@ -169,7 +169,7 @@ def validate_email(email):
     return re.match(pattern, email)
 
 def validate_url(url):
-    pattern = r"^(https?:\/\/)?([\w\-]+\.)+[\w\-]+(\/[\w\-.\/?%&=]*)*$"
+    pattern = r"^(https?:\/\/)?([\.\w\-]+\.)+[\w\-]+(\/[\w\-.\/\?%&=]*)*$"
     return re.match(pattern, url)
 
 
@@ -211,6 +211,11 @@ def save_temp_data(data):
 
 # --- 21. Mass Assignment / Unvalidated Input to ORM ---
 from flask import jsonify
+from sqlalchemy import text
+from sqlalchemy import create_engine
+
+# Allowed columns that can be updated to prevent mass assignment
+ALLOWED_USER_FIELDS = {"email", "display_name", "bio", "phone"}
 
 @app.route("/user/update", methods=["POST"])
 def update_user():
@@ -218,8 +223,12 @@ def update_user():
     conn = get_db_connection()
     cursor = conn.cursor()
     for key, value in data.items():
-        query = "UPDATE users SET " + key + " = '" + value + "' WHERE id = 1"
-        cursor.execute(query)
+        # Validate that the column name is in the allowlist to prevent SQL injection
+        if key not in ALLOWED_USER_FIELDS:
+            return jsonify({"status": "error", "message": f"Field '{key}' is not allowed"}), 400
+        # Use parameterized query with %s placeholder to safely bind the value
+        query = f"UPDATE users SET {key} = %s WHERE id = 1"
+        cursor.execute(query, (value,))
     conn.commit()
     return jsonify({"status": "updated"})
 
