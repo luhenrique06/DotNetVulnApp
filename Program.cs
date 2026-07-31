@@ -26,9 +26,9 @@ builder.Services.AddAuthentication(options =>
     x.SaveToken = true;
     x.TokenValidationParameters = new TokenValidationParameters
     {
-        RequireSignedTokens = false,
-        ValidateIssuerSigningKey = false,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("fedaf7d8863b48e197b9287d492b708e")),
+        RequireSignedTokens = true,
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("change-me")),
         ValidateIssuer = false,
         ValidateAudience = false,
         
