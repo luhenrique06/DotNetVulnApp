@@ -4,7 +4,7 @@
 # Configuração
 Dentro da pasta Properties tem um arquivo launchSettings.json, nele precisa alterar o caminho do banco de dados "SqliteDatabase" para o endereço da sua máquina, o banco de dados SQLite está no arquivo dentro da pasta Database.
 
-# Regras
+# Regras!
 - Um usuário com permissão user, não deve poder logar admin;
 - Tirando as chamadas base todas devem estar autenticadas;
 - Tanto a visualização de um item como a sua remoção deve ser permitido apenas pelo criador.
