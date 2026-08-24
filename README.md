@@ -1,7 +1,7 @@
 # Broken Access Control API
 
 
-# Configuração
+# Configuração!
 Dentro da pasta Properties tem um arquivo launchSettings.json, nele precisa alterar o caminho do banco de dados "SqliteDatabase" para o endereço da sua máquina, o banco de dados SQLite está no arquivo dentro da pasta Database.
 
 # Regras
