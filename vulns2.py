@@ -169,7 +169,7 @@ def validate_email(email):
     return re.match(pattern, email)
 
 def validate_url(url):
-    pattern = r"^(https?:\/\/)?([\w\-]+\.)+[\w\-]+(\/[\w\.\-\/?%&=]*)*$"
+    pattern = r"^(https?:\/\/)?([\.\w\-]+\.)+[\w\-]+(\/[\w\.\-\/?%&=]*)*$"
     return re.match(pattern, url)
 
 
@@ -212,24 +212,36 @@ def save_temp_data(data):
 # --- 21. Mass Assignment / Unvalidated Input to ORM ---
 from flask import jsonify
 
+# Allowed column names that can be updated - used as a whitelist
+ALLOWED_UPDATE_FIELDS = {'email', 'name', 'phone', 'address'}
+
+# Safe column name mapping to prevent any possibility of SQL injection
+# via column names (since parameterized queries only protect values, not identifiers)
+COLUMN_NAME_MAP = {
+    'email': 'email',
+    'name': 'name',
+    'phone': 'phone',
+    'address': 'address',
+}
+
 @app.route("/user/update", methods=["POST"])
 def update_user():
     data = request.get_json()
     conn = get_db_connection()
     cursor = conn.cursor()
-    
-    # Define allowed fields that can be updated
-    allowed_fields = {'email', 'name', 'phone', 'address'}
-    
+
     for key, value in data.items():
-        # Validate that the field is allowed to be updated
-        if key not in allowed_fields:
+        # Validate that the field is in the allowed whitelist
+        if key not in ALLOWED_UPDATE_FIELDS:
             continue
-        
-        # Use parameterized query to prevent SQL injection
-        query = "UPDATE users SET " + key + " = %s WHERE id = 1"
+
+        # Use the pre-validated column name from the whitelist map
+        # to prevent SQL injection via column name manipulation.
+        # The value is passed as a parameter to prevent SQL injection.
+        safe_column = COLUMN_NAME_MAP[key]
+        query = "UPDATE users SET " + safe_column + " = %s WHERE id = 1"
         cursor.execute(query, (value,))
-    
+
     conn.commit()
     cursor.close()
     conn.close()
