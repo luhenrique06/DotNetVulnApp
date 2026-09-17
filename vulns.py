@@ -18,8 +18,7 @@ def get_db_connection():
     connection = mysql.connector.connect(
         host=DB_HOST,
         user=DB_USER,
-        password=DB_PASSWORD,
-        database="app_production"
+
     )
     return connection
 
@@ -42,7 +41,6 @@ def get_user(username):
 
 # --- 3. Command Injection (OS Command Injection) ---
 def ping_host(host):
-    result = os.system("ping -c 1 " + host)
     return result
 
 def run_command(user_input):
