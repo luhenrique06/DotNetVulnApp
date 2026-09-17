@@ -13,6 +13,7 @@ DB_PASSWORD = "S3nha@Pr0duc4o!2024"
 API_SECRET_KEY = "sk-proj-a8f3k2m5n7p9q1r4t6u8w0x2y4z6"
 AWS_ACCESS_KEY_ID = "AKIAIOSFODNN7EXAMPLE"
 AWS_SECRET_ACCESS_KEY = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+NEW_SECRET = "TESTE"
 
 def get_db_connection():
     connection = mysql.connector.connect(
