@@ -9,10 +9,11 @@ namespace brokenaccesscontrol.Utils
     {
         public static string _appLogPath = "logs/Access.log";
 
+        // A09 - Logging & Alerting Failures: entrada não sanitizada -> log injection
+        // (CRLF permite forjar linhas). Além disso, senhas/PAN chegam aqui em claro.
         public static void writeLine(string level, string message){
-            var line = $"[{DateTime.Now}] [{level}] {message.Replace('\n','_').Replace('\r','_').Replace('\t','_')}" + Environment.NewLine;
+            var line = $"[{DateTime.Now}] [{level}] {message}" + Environment.NewLine;
             File.AppendAllText(_appLogPath, line);
-
         }
 
         public static void Debug(string message){

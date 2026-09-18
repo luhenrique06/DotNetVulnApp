@@ -1,0 +1,9 @@
+# Markdown fora do repositório: writeups, plano do lab, desafio e runbook de deploy
+# ficam só na máquina do professor. README.md é a única exceção.
+*.md
+# Barra inicial ancora na raiz: sem ela, o padrão liberaria deploy/README.md também.
+!/README.md
+
+# Cadeia de exploração pronta (login -> traversal -> command injection -> reverse shell).
+# É o gabarito do desafio: nunca publicar.
+bruno/

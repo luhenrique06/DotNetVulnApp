@@ -1,0 +1,29 @@
+# VaultBank - execução em EC2 descartável, atrás do túnel ngrok.
+# Diferenças em relação ao docker-compose.yml de desenvolvimento:
+#   - porta publicada só em 127.0.0.1 (ninguém alcança a app pelo IP público)
+#   - limites de CPU/RAM/PIDs para conter abuso (mineração, fork bomb) via RCE
+#   - capabilities derrubadas e no-new-privileges para dificultar escape do container
+#   - logs rotacionados (disco de 20 GB não enche com o barulho da turma)
+services:
+  vaultbank:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    image: vaultbank:owasp2025
+    container_name: vaultbank
+    ports:
+      - "127.0.0.1:8080:8080"
+    restart: unless-stopped
+    mem_limit: 512m
+    memswap_limit: 512m
+    cpus: 0.8
+    pids_limit: 256
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

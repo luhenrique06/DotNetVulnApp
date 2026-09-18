@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/luiz/Documents/academy/DotNetVulnApp/brokenaccesscontrol.csproj": {}
+    "/Users/luiz/Documents/fap/segundo semestre/seguranca/DotNetVulnApp/brokenaccesscontrol.csproj": {}
   },
   "projects": {
-    "/Users/luiz/Documents/academy/DotNetVulnApp/brokenaccesscontrol.csproj": {
+    "/Users/luiz/Documents/fap/segundo semestre/seguranca/DotNetVulnApp/brokenaccesscontrol.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/luiz/Documents/academy/DotNetVulnApp/brokenaccesscontrol.csproj",
+        "projectUniqueName": "/Users/luiz/Documents/fap/segundo semestre/seguranca/DotNetVulnApp/brokenaccesscontrol.csproj",
         "projectName": "brokenaccesscontrol",
-        "projectPath": "/Users/luiz/Documents/academy/DotNetVulnApp/brokenaccesscontrol.csproj",
+        "projectPath": "/Users/luiz/Documents/fap/segundo semestre/seguranca/DotNetVulnApp/brokenaccesscontrol.csproj",
         "packagesPath": "/Users/luiz/.nuget/packages/",
-        "outputPath": "/Users/luiz/Documents/academy/DotNetVulnApp/obj/",
+        "outputPath": "/Users/luiz/Documents/fap/segundo semestre/seguranca/DotNetVulnApp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/luiz/.nuget/NuGet/NuGet.Config"
@@ -24,6 +24,7 @@
         },
         "frameworks": {
           "net9.0": {
+            "framework": "net9.0",
             "targetAlias": "net9.0",
             "projectReferences": {}
           }
@@ -38,10 +39,11 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "10.0.300"
       },
       "frameworks": {
         "net9.0": {
+          "framework": "net9.0",
           "targetAlias": "net9.0",
           "dependencies": {
             "BouncyCastle": {
@@ -64,6 +66,10 @@
               "target": "Package",
               "version": "[6.0.0, )"
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
@@ -80,6 +86,20 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[9.0.17, 9.0.17]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.osx-arm64",
+              "version": "[9.0.17, 9.0.17]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[9.0.17, 9.0.17]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -88,7 +108,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/Users/luiz/.dotnet/sdk/10.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

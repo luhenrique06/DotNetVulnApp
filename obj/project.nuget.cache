@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JHp7wqSHoN0=",
+  "dgSpecHash": "K7oJ66y4WJs=",
   "success": true,
-  "projectFilePath": "/Users/luiz/Documents/academy/DotNetVulnApp/brokenaccesscontrol.csproj",
+  "projectFilePath": "/Users/luiz/Documents/fap/segundo semestre/seguranca/DotNetVulnApp/brokenaccesscontrol.csproj",
   "expectedPackageFiles": [
     "/Users/luiz/.nuget/packages/bouncycastle/1.8.6.1/bouncycastle.1.8.6.1.nupkg.sha512",
     "/Users/luiz/.nuget/packages/dapper/2.0.123/dapper.2.0.123.nupkg.sha512",
@@ -42,6 +42,7 @@
     "/Users/luiz/.nuget/packages/microsoft.netcore.platforms/2.0.0/microsoft.netcore.platforms.2.0.0.nupkg.sha512",
     "/Users/luiz/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
     "/Users/luiz/.nuget/packages/microsoft.win32.registry/4.5.0/microsoft.win32.registry.4.5.0.nupkg.sha512",
+    "/Users/luiz/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512",
     "/Users/luiz/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.0.6/sqlitepclraw.bundle_e_sqlite3.2.0.6.nupkg.sha512",
     "/Users/luiz/.nuget/packages/sqlitepclraw.core/2.0.6/sqlitepclraw.core.2.0.6.nupkg.sha512",
     "/Users/luiz/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.0.6/sqlitepclraw.lib.e_sqlite3.2.0.6.nupkg.sha512",
@@ -61,14 +62,19 @@
     "/Users/luiz/.nuget/packages/system.security.cryptography.xml/4.5.0/system.security.cryptography.xml.4.5.0.nupkg.sha512",
     "/Users/luiz/.nuget/packages/system.security.permissions/4.5.0/system.security.permissions.4.5.0.nupkg.sha512",
     "/Users/luiz/.nuget/packages/system.security.principal.windows/4.5.0/system.security.principal.windows.4.5.0.nupkg.sha512",
-    "/Users/luiz/.nuget/packages/system.text.encodings.web/4.5.0/system.text.encodings.web.4.5.0.nupkg.sha512"
+    "/Users/luiz/.nuget/packages/system.text.encodings.web/4.5.0/system.text.encodings.web.4.5.0.nupkg.sha512",
+    "/Users/luiz/.nuget/packages/microsoft.netcore.app.ref/9.0.17/microsoft.netcore.app.ref.9.0.17.nupkg.sha512",
+    "/Users/luiz/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.17/microsoft.aspnetcore.app.ref.9.0.17.nupkg.sha512",
+    "/Users/luiz/.nuget/packages/microsoft.netcore.app.host.osx-arm64/9.0.17/microsoft.netcore.app.host.osx-arm64.9.0.17.nupkg.sha512"
   ],
   "logs": [
     {
       "code": "NU1902",
       "level": "Warning",
-      "warningLevel": 1,
       "message": "Package 'BouncyCastle' 1.8.6.1 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-6xx3-rg99-gc3p",
+      "projectPath": "/Users/luiz/Documents/fap/segundo semestre/seguranca/DotNetVulnApp/brokenaccesscontrol.csproj",
+      "warningLevel": 1,
+      "filePath": "/Users/luiz/Documents/fap/segundo semestre/seguranca/DotNetVulnApp/brokenaccesscontrol.csproj",
       "libraryId": "BouncyCastle",
       "targetGraphs": [
         "net9.0"
@@ -77,8 +83,10 @@
     {
       "code": "NU1902",
       "level": "Warning",
-      "warningLevel": 1,
       "message": "Package 'BouncyCastle' 1.8.6.1 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-8xfc-gm6g-vgpv",
+      "projectPath": "/Users/luiz/Documents/fap/segundo semestre/seguranca/DotNetVulnApp/brokenaccesscontrol.csproj",
+      "warningLevel": 1,
+      "filePath": "/Users/luiz/Documents/fap/segundo semestre/seguranca/DotNetVulnApp/brokenaccesscontrol.csproj",
       "libraryId": "BouncyCastle",
       "targetGraphs": [
         "net9.0"
@@ -87,8 +95,10 @@
     {
       "code": "NU1902",
       "level": "Warning",
-      "warningLevel": 1,
       "message": "Package 'BouncyCastle' 1.8.6.1 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-m44j-cfrm-g8qc",
+      "projectPath": "/Users/luiz/Documents/fap/segundo semestre/seguranca/DotNetVulnApp/brokenaccesscontrol.csproj",
+      "warningLevel": 1,
+      "filePath": "/Users/luiz/Documents/fap/segundo semestre/seguranca/DotNetVulnApp/brokenaccesscontrol.csproj",
       "libraryId": "BouncyCastle",
       "targetGraphs": [
         "net9.0"
@@ -97,9 +107,23 @@
     {
       "code": "NU1902",
       "level": "Warning",
-      "warningLevel": 1,
       "message": "Package 'BouncyCastle' 1.8.6.1 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-v435-xc8x-wvr9",
+      "projectPath": "/Users/luiz/Documents/fap/segundo semestre/seguranca/DotNetVulnApp/brokenaccesscontrol.csproj",
+      "warningLevel": 1,
+      "filePath": "/Users/luiz/Documents/fap/segundo semestre/seguranca/DotNetVulnApp/brokenaccesscontrol.csproj",
       "libraryId": "BouncyCastle",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "message": "Package 'Newtonsoft.Json' 12.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr",
+      "projectPath": "/Users/luiz/Documents/fap/segundo semestre/seguranca/DotNetVulnApp/brokenaccesscontrol.csproj",
+      "warningLevel": 1,
+      "filePath": "/Users/luiz/Documents/fap/segundo semestre/seguranca/DotNetVulnApp/brokenaccesscontrol.csproj",
+      "libraryId": "Newtonsoft.Json",
       "targetGraphs": [
         "net9.0"
       ]
@@ -107,8 +131,10 @@
     {
       "code": "NU1701",
       "level": "Warning",
-      "warningLevel": 1,
       "message": "Package 'BouncyCastle 1.8.6.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net9.0'. This package may not be fully compatible with your project.",
+      "projectPath": "/Users/luiz/Documents/fap/segundo semestre/seguranca/DotNetVulnApp/brokenaccesscontrol.csproj",
+      "warningLevel": 1,
+      "filePath": "/Users/luiz/Documents/fap/segundo semestre/seguranca/DotNetVulnApp/brokenaccesscontrol.csproj",
       "libraryId": "BouncyCastle",
       "targetGraphs": [
         "net9.0"

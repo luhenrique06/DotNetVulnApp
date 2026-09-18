@@ -19,12 +19,13 @@ namespace brokenaccesscontrol.Services
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.NameIdentifier, user.Id),
-                    new Claim(ClaimTypes.Name, user.Name),
-                    new Claim(ClaimTypes.Role,  user.IsAdmin ? "admin":"user"),
-                    new Claim("Password", user.Password),
+                    new Claim(ClaimTypes.NameIdentifier, user.Id ?? ""),
+                    new Claim("UserId", user.Id ?? ""),
+                    new Claim(ClaimTypes.Name, user.Name ?? ""),
+                    // A07: role deriva de user.Role/IsAdmin; como o token é aceito sem
+                    // assinatura válida (Program.cs), esse claim é forjável pelo cliente.
+                    new Claim(ClaimTypes.Role, user.IsAdmin ? "admin" : (user.Role ?? "customer")),
                     new Claim("Active", user.Inativo.ToString())
-                    
                 }),
                 Expires = DateTime.UtcNow.AddHours(2),
                 

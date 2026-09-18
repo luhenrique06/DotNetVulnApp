@@ -1,0 +1,14 @@
+# Copie para /etc/ngrok/ngrok.yml na instância, troque o authtoken e ajuste o domínio.
+#   sudo install -o ngrok -g ngrok -m 600 /dev/null /etc/ngrok/ngrok.yml
+#   sudo vi /etc/ngrok/ngrok.yml   (ou scp deste arquivo + mv)
+version: "2"
+authtoken: COLE_SEU_AUTHTOKEN_AQUI
+tunnels:
+  vaultbank:
+    proto: http
+    addr: 8080
+    domain: aulafap.ngrok.app
+    # Opcional: restringe o lab à turma (evita scanner aleatório achar a RCE).
+    # Os alunos passam a precisar de -u aluno:senha nos requests.
+    # basic_auth:
+    #   - "aluno:senha-da-turma"

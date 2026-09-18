@@ -6,6 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <!-- A03 - Software Supply Chain Failures:
+       dependências desatualizadas com CVEs conhecidas e sem packages.lock.json
+       (restore não determinístico). NÃO atualizar num ambiente real de lab. -->
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.123" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
@@ -13,6 +16,8 @@
     <PackageReference Include="BouncyCastle" Version="1.8.6.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     <PackageReference Include="Microsoft.Data.Sqlite" Version="6.0.0" />
+    <!-- CVE-2024-21907 (DoS por profundidade de JSON) + necessário para deserialização insegura (A08) -->
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 
 </Project>

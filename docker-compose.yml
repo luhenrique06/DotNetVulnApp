@@ -1,0 +1,8 @@
+services:
+  vaultbank:
+    build: .
+    image: vaultbank:owasp2025
+    container_name: vaultbank
+    ports:
+      - "8080:8080"
+    restart: unless-stopped

