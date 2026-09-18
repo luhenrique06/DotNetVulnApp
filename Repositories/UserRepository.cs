@@ -107,14 +107,16 @@ public static class UserRepository
         return user.FirstOrDefault();
     }
 
-    // A05 - Injection: concatenação de string. O "sanitizador" em UtilService/controller
-    // remove apenas a primeira aspa simples -> burlável.
+    // Fixed: replaced string concatenation with parameterized query to prevent SQL injection.
     public static async Task<User> LoginSQL(LoginRequest login)
     {
         var conn = SqliteConfigConnection.GetSQLiteConnection();
         string query = "Select id, name, login, password, role, isAdmin, inativo from users " +
-            "where login = '" + login.Login + "' and password = '" + UtilService.ReturnMD5(login.Password ?? "") + "' and inativo = 0";
-        var user = await conn.QueryAsync<User>(query);
+            "where login = @login and password = @password and inativo = 0";
+        var user = await conn.QueryAsync<User>(query, new{
+            login = login.Login,
+            password = UtilService.ReturnMD5(login.Password ?? "")
+        });
         return user.FirstOrDefault();
     }
 
