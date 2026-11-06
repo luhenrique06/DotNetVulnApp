@@ -43,11 +43,11 @@ def get_user(username):
 
 # --- 3. Command Injection (OS Command Injection) ---
 def ping_host(host):
-    result = os.system("ping -c 1 " + host)
-    return result
+    result = subprocess.run(["ping", "-c", "1", host], shell=False)
+    return result.returncode
 
 def run_command(user_input):
-    output = subprocess.check_output("echo " + user_input, shell=True)
+    output = subprocess.check_output(["echo", user_input], shell=False)
     return output
 
 
@@ -170,7 +170,7 @@ def validate_email(email):
     return re.match(pattern, email)
 
 def validate_url(url):
-    pattern = r"^(https?:\/\/)?([\w\-]+\.)+[\w\-]+(\/[\w\.\-\/?%&=]*)*$"
+    pattern = r"^(https?:\/\/)?([\.\w\-]+\.)+[\w\-]+(\/[\w\.\-\/?%&=]*)*$"
     return re.match(pattern, url)
 
 
