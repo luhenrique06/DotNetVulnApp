@@ -170,7 +170,7 @@ def validate_email(email):
     return re.match(pattern, email)
 
 def validate_url(url):
-    pattern = r"^(https?:\/\/)?([\w\-]+\.)+[\w\-]+(\/[\w\.\-\/?%&=]*)*$"
+    pattern = r"^(https?:\/\/)?([\.\w\-]+\.)+[\w\-]+(\/[\w\.\-\/?%&=]*)*$"
     return re.match(pattern, url)
 
 
@@ -218,19 +218,30 @@ def update_user():
     data = request.get_json()
     conn = get_db_connection()
     cursor = conn.cursor()
-    
+
     # Define allowed fields that can be updated
     allowed_fields = {'email', 'name', 'phone', 'address'}
-    
+
+    # Define a safe mapping from field names to their SQL column identifiers
+    # This prevents SQL injection by never interpolating user-supplied keys directly
+    field_to_column = {
+        'email': 'email',
+        'name': 'name',
+        'phone': 'phone',
+        'address': 'address'
+    }
+
     for key, value in data.items():
         # Validate that the field is allowed to be updated
         if key not in allowed_fields:
             continue
-        
-        # Use parameterized query to prevent SQL injection
-        query = "UPDATE users SET " + key + " = %s WHERE id = 1"
+
+        # Use the safe column name from the whitelist mapping instead of
+        # interpolating the user-supplied key directly into the SQL string
+        column = field_to_column[key]
+        query = "UPDATE users SET " + column + " = %s WHERE id = 1"
         cursor.execute(query, (value,))
-    
+
     conn.commit()
     cursor.close()
     conn.close()
