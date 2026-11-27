@@ -19,13 +19,16 @@ public class CardsController : ControllerBase
         return Ok(cards);
     }
 
-    // A01 - BOLA: id sequencial, sem checar dono -> qualquer cartão (PAN/CVV) é exposto.
+    // Fixed A01 - BOLA: Now checks that the authenticated user owns the card before returning it.
     [HttpGet("{id}")]
     public async Task<ActionResult> GetCard(int id)
     {
+        var userId = User.FindFirst("UserId")?.Value ?? "";
         var card = await CardRepository.GetById(id);
         if (card == null)
             return NotFound(new { message = "Cartão não encontrado" });
+        if (card.OwnerId != userId)
+            return Forbid();
         return Ok(card);
     }
 }
