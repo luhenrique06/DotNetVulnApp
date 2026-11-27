@@ -20,8 +20,7 @@ builder.Services.AddCors(options =>
               .AllowCredentials());
 });
 
-// A02/A07 - JWT: validação de assinatura desligada, aceita tokens não assinados
-// (alg:none) e chave HMAC hardcoded compartilhada.
+// A02/A07 - JWT: signature validation enabled, only signed tokens accepted.
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -33,8 +32,8 @@ builder.Services.AddAuthentication(options =>
     x.SaveToken = true;
     x.TokenValidationParameters = new TokenValidationParameters
     {
-        RequireSignedTokens = false,
-        ValidateIssuerSigningKey = false,
+        RequireSignedTokens = true,
+        ValidateIssuerSigningKey = true,
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("fedaf7d8863b48e197b9287d492b708e")),
         ValidateIssuer = false,
         ValidateAudience = false,
