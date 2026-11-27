@@ -1,3 +1,5 @@
+using System.Security.Cryptography;
+using System.Text;
 using brokenaccesscontrol.Models;
 using brokenaccesscontrol.Repositories;
 using brokenaccesscontrol.Utils;
@@ -43,12 +45,40 @@ public class WebhooksController : ControllerBase
     }
 
     // A08 - Software and Data Integrity Failures:
-    //   callback de confirmação de PIX credita a conta destino sem verificar a
-    //   assinatura HMAC do payload. Qualquer um forja um crédito.
+    //   callback de confirmação de PIX credita a conta destino somente após verificar a
+    //   assinatura HMAC do payload contra o secret registrado.
     [HttpPost("pix-callback")]
     public async Task<ActionResult> PixCallback([FromBody] WebhookCallback cb)
     {
-        // A assinatura chega no payload mas não é validada contra o secret.
+        // Retrieve the registered webhook secret for signature validation.
+        var webhook = await WebhookRepository.GetByExternalId(cb.ExternalId);
+        if (webhook == null)
+            return Unauthorized(new { message = "Webhook não registrado" });
+
+        if (string.IsNullOrEmpty(webhook.Secret))
+            return Unauthorized(new { message = "Webhook sem secret configurado" });
+
+        // Validate the HMAC-SHA256 signature of the payload.
+        if (string.IsNullOrEmpty(cb.Signature))
+            return Unauthorized(new { message = "Assinatura ausente" });
+
+        var payload = $"{cb.ToAccount}:{cb.Amount}:{cb.ExternalId}";
+        var secretBytes = Encoding.UTF8.GetBytes(webhook.Secret);
+        var payloadBytes = Encoding.UTF8.GetBytes(payload);
+
+        using var hmac = new HMACSHA256(secretBytes);
+        var expectedHashBytes = hmac.ComputeHash(payloadBytes);
+        var expectedSignature = Convert.ToHexString(expectedHashBytes).ToLowerInvariant();
+
+        // Use constant-time comparison to prevent timing attacks.
+        if (!CryptographicOperations.FixedTimeEquals(
+                Encoding.UTF8.GetBytes(expectedSignature),
+                Encoding.UTF8.GetBytes(cb.Signature.ToLowerInvariant())))
+        {
+            AccessLog.Warn($"PIX callback signature mismatch for ext={cb.ExternalId} toAccount={cb.ToAccount}");
+            return Unauthorized(new { message = "Assinatura inválida" });
+        }
+
         var dest = await AccountRepository.GetById(cb.ToAccount);
         if (dest == null)
             return NotFound(new { message = "Conta destino não encontrada" });
