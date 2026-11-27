@@ -5,6 +5,7 @@ import hashlib
 import pickle
 import yaml
 import xml.etree.ElementTree as ET
+import importlib
 
 # --- 1. Hardcoded Credentials ---
 DB_HOST = "production-db.example.com"
@@ -135,7 +136,8 @@ def calculate(expression):
     return eval(expression)
 
 def dynamic_import(module_name):
-    exec("import " + module_name)
+    # Use importlib.import_module instead of exec() to safely import modules
+    importlib.import_module(module_name)
 
 
 # --- 15. LDAP Injection ---
@@ -170,7 +172,7 @@ def validate_email(email):
     return re.match(pattern, email)
 
 def validate_url(url):
-    pattern = r"^(https?:\/\/)?([\w\-]+\.)+[\w\-]+(\/[\w\.\-\/?%&=]*)*$"
+    pattern = r"^(https?:\/\/)?(([\w\-]+\.)+[\w\-]+)(\/[\w\.\-\/\?%&=]*)*$"
     return re.match(pattern, url)
 
 
